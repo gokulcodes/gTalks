@@ -94,8 +94,8 @@ function readOutLoud(message){
     else{
         speech.text = "I can't get you, please try once";
     }
-    speech.volume = 4;
-    speech.rate = .8;
-    speech.pitch = 4;
+    speech.volume = 1;
+    speech.rate = 0.9;
+    speech.pitch = 1;
     window.speechSynthesis.speak(speech);
 }
