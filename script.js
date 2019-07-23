@@ -1,9 +1,11 @@
-window.alert("Cotent To Speak: 1. how are you 2. what's your age 3.say about me 4.whats about weather 5. thanks gokul");
+window.alert("Content To Speak: \n 1. how are you \n 2. what's your age \n 3.say about me \n 4.whats about weather \n 5. thanks gokul \n 6. Music");
 $(".talk").click(function() {
         $(".talk").toggleClass('talkActive');
 });
+console.log(window);
 function adding(){
     document.querySelector('.talk').classList.add('talkActive');
+    
 }
 window.addEventListener('keypress', adding);
 const btn = document.querySelector(".talk");
@@ -13,6 +15,7 @@ const greetings = ["I'm great, i hope you'll be fantastic today", "my age is one
 const weather = ["It's rainy, today", "thank you have a great day"];
 const harini = ["hi harini, your is gokul's angel", "love you minion", "stay with me forever"];
 const gokul = ["shit, gokul is mad"];
+const gesture = ['Hello sir! how can i help you? '];
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -22,9 +25,14 @@ recognition.onstart = function(){
 }
 
 recognition.onresult = function(event){
+    console.log(event);
     const current = event.resultIndex;
+    const SpeakIt = 'I cant get you ';
     const transcript = event.results[current][0].transcript;
     content.textContent = transcript;
+    if(transcript === null){
+        readOutLoud(SpeakIt);
+    }
     readOutLoud(transcript);
 }
 btn.addEventListener("click", () => {
@@ -32,8 +40,9 @@ btn.addEventListener("click", () => {
 });
 
 function readOutLoud(message){
+    let audioNumber = Math.round(1 + Math.random() * 6);
+    const audio = document.querySelector('.mymusic'+audioNumber);
     const speech = new SpeechSynthesisUtterance();
-    speech.text = "I can't get you, please try once";
     if(message.includes('how are you')){
         const readIt = greetings[0];
         speech.text = readIt;
@@ -70,8 +79,23 @@ function readOutLoud(message){
         const readIt = gokul[0];
         speech.text = readIt;
     }
-    speech.volume = 1;
-    speech.rate =1;
-    speech.pitch = 1;
+    else if(message.includes('hello')){
+        const readIt = gesture[0];
+        speech.text = readIt;
+    }
+    else if(message.includes('music')){
+        // console.log(audio);
+        audio.play();
+    }
+    else if(message.includes('stop')){
+        // console.log(audio);
+        audio.pause();
+    }
+    else{
+        speech.text = "I can't get you, please try once";
+    }
+    speech.volume = 4;
+    speech.rate = .8;
+    speech.pitch = 4;
     window.speechSynthesis.speak(speech);
 }

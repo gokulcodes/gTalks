@@ -18,6 +18,15 @@ body{
     font-family: "Poppins", sans;
     font-weight: lighter;
 }
+h1{
+    position: absolute;
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: white;
+    -webkit-text-fill-color: transparent;
+    margin: -10% 20% 30% 43%;
+    font-size: 6rem;
+    font-weight: lighter;
+}
 h3{
     text-align: center;
     color: white;
@@ -94,6 +103,12 @@ h3{
         z-index: -2;
         
     }
+    h1{
+        position: absolute;
+        margin: -10% 20% 30% 45%;
+        color: white;
+        font-weight: lighter;
+    }
     .talkBtn{
         margin: -62% 47%;
     }
@@ -147,6 +162,12 @@ h3{
         background-repeat: no-repeat;
         z-index: -2;
         
+    }
+    h1{
+        position: absolute;
+        margin: -10% 20% 30% 44%;
+        color: white;
+        font-weight: lighter;
     }
     .talk{
         width: 50px;
@@ -218,6 +239,12 @@ h3{
         background-repeat: no-repeat;
         z-index: -2;
         
+    }
+    h1{
+        position: absolute;
+        margin: -24% 24% 31% 41%;
+        color: white;
+        font-weight: lighter;
     }
     .talk{
         width: 60px;
