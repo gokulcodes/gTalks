@@ -75,7 +75,7 @@ function readOutLoud(message){
         const readIt = harini[2];
         speech.text = readIt;
     }
-    else if(message.includes('query to iniyan')){
+    else if(message.includes('query')){
         const readIt = gokul[0];
         speech.text = readIt;
     }
