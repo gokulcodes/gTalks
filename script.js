@@ -89,7 +89,7 @@ function readOutLoud(message){
     }
     else if(message.includes('stop')){
         // console.log(audio);
-        audio.pause();
+        location.reload();
     }
     else{
         speech.text = "I can't get you, please try once";
